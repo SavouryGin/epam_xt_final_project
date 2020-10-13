@@ -106,21 +106,37 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Pages\processLogIn.cshtml" />
+    <Content Include="Pages\processSingIn.cshtml" />
+    <None Include="Scripts\jquery-3.5.1.intellisense.js" />
+    <Content Include="Scripts\AppLogIn.js" />
+    <Content Include="Scripts\jquery-3.5.1.js" />
+    <Content Include="Scripts\jquery-3.5.1.min.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.js" />
+    <Content Include="Scripts\jquery.md5.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\MyRoleProvider.cs" />
     <Compile Include="API\UsersAPI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.cshtml" />
+    <Content Include="login.cshtml" />
+    <Content Include="logout.cshtml" />
     <None Include="packages.config" />
+    <Content Include="_basicLayout.cshtml" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.5.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="_authentication.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL.Contracts\BLL.Contracts.csproj">
@@ -139,6 +155,10 @@
       <Project>{D7DEE4A8-E8E4-4B78-9E93-9C7178C90619}</Project>
       <Name>PL.Contracts</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CSS\" />
+    <Folder Include="Icons\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

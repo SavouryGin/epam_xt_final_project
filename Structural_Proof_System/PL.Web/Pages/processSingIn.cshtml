@@ -1,0 +1,35 @@
+﻿@using PL.Web.API
+@using Common.Entities
+@{
+    var usersAPI = new UsersAPI();
+
+    var name = Request["Login"];
+    var password = Request["Password"];
+    int age = 0;
+    string avatar = null;
+
+    var user = new User(name, age, avatar);
+
+    switch (usersAPI.AddUser(user))
+    {
+        case UserStatus.Exists:
+            var existedUser = usersAPI.GetUserByName(name);
+            if (existedUser.Password == null)
+            {
+                usersAPI.SetPassword(existedUser.Id, password);
+                Response.Write("Новый пароль сохранён. Вы можете войти в систему с новым паролем.");
+            }
+            else
+            {
+                Response.Write("Пользователь с таким именем уже существует!");
+            }
+            return;
+        case UserStatus.Verified:
+            usersAPI.SetPassword(user.Id, password);
+            Response.Write("Регистрация прошла успешно! Вы можете войти в систему с новым паролем.");
+            return;
+        default:
+            Response.Write("Некорректное имя пользователя. Имя должно содержать от 2 до 25 символов английского алфавита.");
+            return;
+    } 
+}

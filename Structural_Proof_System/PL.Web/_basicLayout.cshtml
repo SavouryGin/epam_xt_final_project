@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "~/_authentication.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Structural Proof System</title>
+    <script src="~/Scripts/jquery-3.5.1.min.js"></script>
+    <script src="~/Scripts/AppLogIn.js"></script>
+</head>
+<body>
+    <h1>Система построения формальных структурных доказательств</h1>
+    <div>
+
+    </div>
+
+    <div class="fixed-bottom">
+        <span class="text-info">Привет, @User.Identity.Name </span>
+        <button class="btn" id="logoutButton">Выйти</button>
+    </div>
+    @RenderBody()
+</body>
+</html>

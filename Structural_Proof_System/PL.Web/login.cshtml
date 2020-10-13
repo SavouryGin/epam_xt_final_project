@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LogIn</title>
+    <script src="~/Scripts/jquery-3.5.1.min.js"></script>
+    <script src="~/Scripts/jquery.md5.js"></script>
+    <script src="~/Scripts/AppLogIn.js"></script>
+</head>
+<body>
+    <div>
+        <div>
+            <div class="form-group">
+                <label for="login">Имя</label>
+                <input type="text" class="form-control" id="login" placeholder="Введите имя...">
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input type="password" class="form-control" id="password" placeholder="Введите пароль...">
+            </div>
+            <div class="form-group">
+                <button class="btn" id="loginButton">Войти</button>
+                <button class="btn" id="registrationButton">Зарегистрироваться</button>
+                <div class="text-info" id="result"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

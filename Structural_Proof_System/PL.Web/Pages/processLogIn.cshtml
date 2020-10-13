@@ -1,0 +1,16 @@
+﻿@using PL.Web.API
+@{
+    var userAPI = new UsersAPI();
+
+    var name = Request["Login"];
+    var password = Request["Password"];
+
+    if (userAPI.IsRegistered(name, password))
+    {
+        FormsAuthentication.SetAuthCookie(name, createPersistentCookie: true);
+    }
+    else
+    {
+        Response.Write("Неправильное имя пользователя или пароль!");
+    }
+}
