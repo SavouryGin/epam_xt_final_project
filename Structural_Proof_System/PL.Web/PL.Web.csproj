@@ -109,6 +109,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\UsersAPI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -120,6 +121,24 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL.Contracts\BLL.Contracts.csproj">
+      <Project>{C99626F0-2B46-463E-9E60-D3C8E041D3E2}</Project>
+      <Name>BLL.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.BLL.DR\Common.BLL.DR.csproj">
+      <Project>{2D98ACDB-913E-4595-9B06-B6061C332C2A}</Project>
+      <Name>Common.BLL.DR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Entities\Common.Entities.csproj">
+      <Project>{50F3FC84-4018-48DC-AB09-4B70AAC2E72C}</Project>
+      <Name>Common.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PL.Contracts\PL.Contracts.csproj">
+      <Project>{D7DEE4A8-E8E4-4B78-9E93-9C7178C90619}</Project>
+      <Name>PL.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
