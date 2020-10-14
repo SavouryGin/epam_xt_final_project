@@ -106,6 +106,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CSS\logInPageStyle.css" />
+    <Content Include="CSS\mainPageStyle.css" />
     <Content Include="Pages\processLogIn.cshtml" />
     <Content Include="Pages\processSingIn.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
@@ -157,7 +159,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CSS\" />
     <Folder Include="Icons\" />
   </ItemGroup>
   <PropertyGroup>

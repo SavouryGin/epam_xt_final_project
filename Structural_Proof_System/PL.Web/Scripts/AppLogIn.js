@@ -4,12 +4,6 @@ function onReady() {
     $('#loginButton').click(logIn);
     $('#registrationButton').click(register);
     $('#logoutButton').click(logOut);
-
-    $(document).keydown(function (event) {
-        if (event.keyCode === 13) {
-            $('#loginButton').click();
-        }
-    });
 }
 
 function register() {
