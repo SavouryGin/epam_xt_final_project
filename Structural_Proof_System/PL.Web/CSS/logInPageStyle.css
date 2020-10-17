@@ -84,26 +84,28 @@ main {
 
 header {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2rem;
-    color: #7AC0FF;
+    font-size: 1.4rem;
+    color: #969696;
     padding: 1rem;
-    width: 60%;
     text-align: center;
-    margin: auto;
+    background-color: #333333;
 }
 
 footer {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     text-align: center;
     padding: 0.8rem;
     color: #969696;
-    background-color: #252526;
+    background-color: #333333;
+    border-top: 1px dashed #1e5381;
 }
 
 .registration-field {
     padding: 1rem;
     background-color: #3E3E42;
+    border-bottom: 1px dashed #1e5381;
+    border-top: 1px dashed #1e5381;
 }
 
 .form-group {
