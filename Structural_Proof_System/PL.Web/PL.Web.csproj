@@ -118,6 +118,8 @@
     <Content Include="Pages\processSingIn.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\AppLogIn.js" />
+    <Content Include="Scripts\AppParseFunctions.js" />
+    <Content Include="Scripts\AppProofFunctions.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
     <Content Include="Scripts\jquery-3.5.1.slim.js" />
