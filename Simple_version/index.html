@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width" />
+        <link href="CSS/mainPageStyle.css" rel="stylesheet" />
+        <title>Proof System</title>
+    </head>
+    <body>
+        <header>Система построения структурных доказательств<br>в натуральном исчислении высказываний</header>
+        <main>
+            <table class="main-table">
+                <tbody>
+                    <!-- Меню таблицы -->
+                    <tr>  
+                        <td class="main-table__menu">
+                            <button type="button" class="btn-table__menu" onClick='doundo()' id='doundo' >Отменить</button>
+                            <button type="button" class="btn-table__menu" onClick='docopy()'>Копировать</button>
+                            <button type="button" class="btn-table__menu" onClick='dopaste()'>Вставить</button>
+                            <button type="button" class="btn-table__menu" onClick='doload()'>Загрузить</button>
+                            <button type="button" class="btn-table__menu" onClick='dosave()'>Сохранить</button>
+                            <a href="helpPage.html" class="btn-table__menu" target='_blank'>Помощь</a>
+                        </td>
+                    </tr>
+                    <!-- Поле, появляющееся при загрузке файла доказательства -->
+                    <tr id='operation' style='display:none'>
+                        <td class="main-table__fields">
+                          <input type="file" id='selector' onChange='dofileselect(this)'/>
+                          <input type='button' value='Cancel' onClick='unload()' class="btn-table__menu"/>
+                        </td>
+                      </tr>
+                    <!-- Поле для отображения доказательства -->
+                    <tr>
+                        <td class="main-table__proof">
+                            <div id='proof'></div></td>
+                    </tr>
+                    <!-- Поле для добавления посылки -->
+                    <tr id='premise' style='display:none'>
+                        <td class="main-table__fields">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label for="newpremise">Введите посылку:</label>
+                                        <input id='newpremise' type='text' value='' size='40' autocomplete='off' class="main-table__input" /><br/>
+                                        <input type='button' value='Добавить' onClick='addpremise()' class="btn-table__menu" />
+                                        <input type='button' value='Отмена' onClick='unpremise()' class="btn-table__menu"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- Поле для добавления гипотезы -->
+                    <tr id='assumption' style='display:none'>
+                        <td class="main-table__fields">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label for="newassumption">Введите гипотезу:</label>
+                                        <input id='newassumption' type='text' value='' size='40' autocomplete='off' class="main-table__input"/><br/>
+                                        <input type='button' value='Добавить' onClick='addassumption()' class="btn-table__menu"/>
+                                        <input type='button' value='Отмена' onClick='unassumption()' class="btn-table__menu"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- Поле для замены символов -->
+                    <tr id='replace' style='display:none'>
+                        <td class="main-table__fields">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label for="oldexpression">Введите заменяемое выражение:</label><br>
+                                        <input id='oldexpression' type='text' value='' size='40' autocomplete='off' class="main-table__input"/><br/>
+                                        <label for="newexpression">Введите выражение на замену:</label><br>
+                                        <input id='newexpression' type='text' value='' size='40' autocomplete='off' class="main-table__input"/><br/>
+                                        <input type='button' value='Заменить' onClick='doreplacement()' class="btn-table__menu"/>
+                                        <input type='button' value='Выход' onClick='unreplace()' class="btn-table__menu"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- Поле для добавления формулы через ВД -->
+                    <tr id='oi' style='display:none'>
+                        <td class="main-table__fields">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label for="newoi">Введите формулу:</label>
+                                        <input id='newoi' type='text' value='' size='40' autocomplete='off' class="main-table__input"/><br/>
+                                        <input type='button' value='Добавить' onClick='addoi()' class="btn-table__menu"/>
+                                        <input type='button' value='Отмена' onClick='unoi()' class="btn-table__menu"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- Кнопки правил вывода -->
+                    <tr>
+                        <td class="rules-table__frame">
+                            <table class="rules-table">
+                                <tr class="rules-table__row">
+                                    <td>
+                                        <input type='button' id='dodelete' name=command value='Удаление' onClick='dodelete()' class="btn-table__functions"/>
+                                        <input type='button' id='doni' name=command value='Введение отрицания' onClick='doni()' class="btn-table__functions"/>
+                                        <input type='button' id='done' name=command value='Удаление отрицания' onClick='done()' class="btn-table__functions"/>
+                                    </td>
+                                </tr>
+                                <tr class="rules-table__row">
+                                    <td>
+                                        <input type='button' id='doreiteration' name=command value='Повтор' onClick='doreiteration()' class="btn-table__functions"/>
+                                        <input type='button' id='doai' name=command value='Введение конъюнкции' onClick='doai()' class="btn-table__functions"/>
+                                        <input type='button' id='doae' name=command value='Удаление конъюнкции' onClick='doae()' class="btn-table__functions"/>
+                                    </td>
+                                </tr>
+                                <tr class="rules-table__row">
+                                    <td>
+                                        <input type='button' id='doreplace' name=command value='Замена' onClick='doreplace()' class="btn-table__functions"/>
+                                        <input type='button' id='dooi' name=command value='Введение дизъюнкции' onClick='dooi()' class="btn-table__functions"/>
+                                        <input type='button' id='dooe' name=command value='Удаление дизъюнкции' onClick='dooe()' class="btn-table__functions"/>
+                                    </td>
+                                </tr>
+                                <tr class="rules-table__row">
+                                    <td>
+                                        <input type='button' id='dopremise' value='Посылка' onClick='dopremise()' class="btn-table__functions"/>                                        
+                                        <input type='button' id='doii' value='Введение импликации' onClick='doii()' class="btn-table__functions"/>
+                                        <input type='button' id='doie' name=command value='Удаление импликации' onClick='doie()' class="btn-table__functions"/>
+                                    </td>
+                                </tr>
+                                <tr class="rules-table__row">
+                                    <td>
+                                        <input type='button' id='doassumption' value='Гипотеза' onClick='doassumption()' class="btn-table__functions"/>
+                                        <input type='button' id='dobi' name=command value='Введение эквивалентности' onClick='dobi()' class="btn-table__functions"/>
+                                        <input type='button' id='dobe' name=command value='Удаление эквивалентности' onClick='dobe()' class="btn-table__functions"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>                        
+                    </tr>                  
+                </tbody>      
+            </table>
+        </main>
+        <footer>
+            <p>&copy 2020, Дмитрий Суровягин</p>
+            <p>surovyagin@hotmail.com</p>
+        </footer>
+        <!-- Scripts -->
+        <script src='Scripts/generalFunctions.js'></script>
+        <script src='Scripts/proofFunctions.js'></script>
+
+    </body>
+</html>
