@@ -109,6 +109,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CSS\helpPageStyle.css" />
     <Content Include="CSS\logInPageStyle.css" />
     <Content Include="CSS\mainPageStyle.css" />
     <Content Include="Icons\edit.png" />
@@ -116,6 +117,7 @@
     <Content Include="Icons\user.png" />
     <Content Include="Pages\processLogIn.cshtml" />
     <Content Include="Pages\processSingIn.cshtml" />
+    <Content Include="helpPage.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\AppLogIn.js" />
     <Content Include="Scripts\AppParseFunctions.js" />
@@ -166,7 +168,9 @@
       <Name>PL.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Pics\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
